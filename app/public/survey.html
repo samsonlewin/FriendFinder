@@ -105,9 +105,10 @@ function sendDataToServer(survey) {
   scores:[survey.data.q1, survey.data.q2, survey.data.q3, survey.data.q4, survey.data.q5, survey.data.q6, survey.data.q7, survey.data.q8, survey.data.q9, survey.data.q10]
 };
 
-$.post("api/friends",userAnswer, function(data){
+$.post("api/friends", userAnswer).done(function(data){
+  console.log(data);
   $("#matchName").text(data.name);
-  $("#matchImg").text("src", data.photo);
+  $("#matchImg").attr("src", data.photo);
   $("#resultsModal").modal('toggle');
 });
 

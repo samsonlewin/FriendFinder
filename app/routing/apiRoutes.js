@@ -13,25 +13,26 @@ console.log(friends);
 
 app.post('/api/friends', function(req, res){
 	var greatMatch = {
-		name: "",
-		photo: "",
+		name: "Someone",
+		photo: "https://scontent.fsnc1-2.fna.fbcdn.net/v/t31.0-8/14196007_10153680867496020_2239852579028198013_o.jpg?oh=f9cb4dd24b31fe7f8ededf9c2f1cd638&oe=598A87F5",
 		matchDifference: 1000
 	};
 
-
 var userData = req.body;
 var userName = userData.name;
-var userImage = userData.image;
+var userImage = userData.photo;
 var userScores = userData.scores;
 
-for(var i = 0; i < [friends].length-1; i++){
+console.log(userName +"/ "+ userImage +"/ "+ userScores);
+
+for(var i = 0; i < friends.length; i++){
 console.log(friends[i].name);
 totalDifference = 0;
 
 for(var j = 0; j < 10; j++){
 totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
 
-if (totalDifference <= greatMatch.friendDifference){
+if (totalDifference <= greatMatch.matchDifference){
 
 					// Reset the bestMatch to be the new friend. 
 					greatMatch.name = friends[i].name;
