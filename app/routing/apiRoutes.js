@@ -1,9 +1,10 @@
 
 var friends = require('../data/friends.js');
-var path = require('path');
+// var path = require('path');
 
-var difference = 0;
+// var difference = 0;
 
+// I'm sure it seems silly to care about, but indentation really is your friend when it comes to maintaining code.
 module.exports = function(app){
 	app.get('/api/friends', function(req, res){
 		res.json(friends);
@@ -25,8 +26,11 @@ var userScores = userData.scores;
 
 console.log(userName +"/ "+ userImage +"/ "+ userScores);
 
+// since friends is an array you can just use the native `.forEach` method here
+// this creates a functional closure/scope that won't leak variables.
 for(var i = 0; i < friends.length; i++){
 console.log(friends[i].name);
+// make sure to declare variables with `var` so you don't leak them onto the global scope
 totalDifference = 0;
 
 for(var j = 0; j < 10; j++){
